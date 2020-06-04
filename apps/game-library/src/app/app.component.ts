@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import { AngularFireFunctions } from '@angular/fire/functions';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'cascade-test-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  template: `<router-outlet> </router-outlet>`,
 })
 export class AppComponent {
-  title = 'game-library';
+  constructor(private afFunc: AngularFireFunctions) {
+    if (environment.local) {
+      this.afFunc.useFunctionsEmulator(
+        environment.localConfig.functionsEmulatorURL
+      );
+    }
+  }
 }
