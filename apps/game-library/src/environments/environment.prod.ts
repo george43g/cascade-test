@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
   local: false,
+  localConfig: null,
   firebase: {
     apiKey: 'AIzaSyALGvkLNcPy6GRrMMEqF68tpxeLcvewlFQ',
     authDomain: 'cascade-test-g.firebaseapp.com',
