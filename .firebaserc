@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "cascade-test-g"
+  },
+  "targets": {
+    "cascade-test-g": {
+      "hosting": {
+        "game-library": [
+          "cascade-test-g"
+        ]
+      }
+    }
   }
 }

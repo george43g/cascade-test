@@ -4,6 +4,20 @@
 
 export const environment = {
   production: false,
+  local: true,
+  localConfig: {
+    functionsEmulatorURL: 'http://localhost:5001',
+    firestoreConfig: { host: 'localhost:8080', ssl: false },
+  },
+  firebase: {
+    apiKey: 'AIzaSyALGvkLNcPy6GRrMMEqF68tpxeLcvewlFQ',
+    authDomain: 'cascade-test-g.firebaseapp.com',
+    databaseURL: 'https://cascade-test-g.firebaseio.com',
+    projectId: 'cascade-test-g',
+    storageBucket: 'cascade-test-g.appspot.com',
+    messagingSenderId: '595222744320',
+    appId: '1:595222744320:web:6677048be0841b05f477e5',
+  },
 };
 
 /*

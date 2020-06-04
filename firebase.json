@@ -6,16 +6,19 @@
   "functions": {
     "predeploy": ["echo predeploy firebase hook"]
   },
-  "hosting": {
-    "public": "dist/apps/game-library",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  },
+  "hosting": [
+    {
+      "target": "game-library",
+      "public": "dist/apps/game-library",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ],
   "emulators": {
     "functions": {
       "port": 5001
