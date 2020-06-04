@@ -1,0 +1,12 @@
+{
+  "functionDirectoryPath": "app/api/",
+  "searchGlob": "**/!(*.spec).ts",
+  "outputEntryFilename": "main.js",
+  "dependencies": [
+    "better-firebase-functions",
+    "firebase-admin",
+    "firebase-functions",
+    "lodash"
+  ],
+  "keepExternal": ["firebase-admin", "firebase-functions"]
+}

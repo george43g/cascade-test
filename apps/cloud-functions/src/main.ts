@@ -1,1 +1,7 @@
-console.log('Hello World!');
+import { exportFunctions } from 'better-firebase-functions';
+
+exportFunctions({
+  __filename,
+  exports,
+  enableLogger: true,
+});
