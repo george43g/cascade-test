@@ -1,0 +1,20 @@
+<h2>Add Game to Library!</h2>
+
+<mat-form-field class="example-full-width">
+  <mat-label>Game Title</mat-label>
+  <input #title matInput placeholder="Ex. Crysis" value="" />
+</mat-form-field>
+
+<br />
+<mat-form-field class="example-full-width">
+  <mat-label>Description</mat-label>
+  <textarea
+    #description
+    matInput
+    placeholder="Ex. This game is an FPS..."
+  ></textarea>
+</mat-form-field>
+<br />
+<button (click)="createGame(title.value, description.value)" mat-raised-button>
+  Create
+</button>

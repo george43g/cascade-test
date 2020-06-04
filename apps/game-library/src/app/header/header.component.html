@@ -1,0 +1,15 @@
+<h1>Cascade Game Library</h1>
+
+<button mat-raised-button color="accent" (click)="signOut()">Sign Out</button>
+<h2>Current User: {{ userName }}&nbsp;</h2>
+
+<nav>
+  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button [routerLink]="'/'" mat-menu-item>Home</button>
+    <button [routerLink]="'login'" mat-menu-item>Login</button>
+    <button [routerLink]="'add'" mat-menu-item>Add Game</button>
+  </mat-menu>
+</nav>
+
+<p style="clear: both;"></p>

@@ -1,0 +1,14 @@
+<section>
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="title" />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput [(ngModel)]="description"></textarea>
+  </mat-form-field>
+</section>
+<button (click)="update()" mat-raised-button>UPDATE</button>
+
+<button (click)="delete()" mat-raised-button>DELETE</button>

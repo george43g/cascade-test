@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  min-height: 100px;
+  border-bottom: 1px solid #444;
+  padding: 2%;
+}
+
+h1 {
+  margin-top: 2em;
+  text-align: center;
+}
+
+h2 {
+  float: right;
+  text-align: right;
+}
+button {
+  float: right;
+}
+
+nav {
+  float: left;
+}

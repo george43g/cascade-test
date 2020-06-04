@@ -4,7 +4,10 @@ import { environment } from '../environments/environment';
 
 @Component({
   selector: 'cascade-test-root',
-  template: `<router-outlet> </router-outlet>`,
+  template: `
+    <cascade-test-header></cascade-test-header>
+    <router-outlet> </router-outlet>
+  `,
 })
 export class AppComponent {
   constructor(private afFunc: AngularFireFunctions) {
