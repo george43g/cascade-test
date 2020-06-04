@@ -10,8 +10,24 @@ service cloud.firestore {
     //
     // Make sure to write security rules for your app before that time, or else
     // your app will lose access to your Firestore database
-    match /{document=**} {
-      allow read, write: if request.time < timestamp.date(2020, 7, 4);
+    match /users/{user} {
+      allow read, write: if docIdIsMyUid();
+    }
+
+    match /games/{game} {
+      allow read: if userIsAuthenticated();
+
+      allow write: if resource.data['owner'] == request.auth.uid;
+    }
+
+
+
+    function userIsAuthenticated() {
+      return request.auth != null;
+    }
+
+    function docIdIsMyUid() {
+      return request.resource.id == request.auth.uid;
     }
   }
 }
