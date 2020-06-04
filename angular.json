@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "projects": {
+    "game-library": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/game-library",
+      "sourceRoot": "apps/game-library/src",
+      "prefix": "cascade-test",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/game-library",
+            "index": "apps/game-library/src/index.html",
+            "main": "apps/game-library/src/main.ts",
+            "polyfills": "apps/game-library/src/polyfills.ts",
+            "tsConfig": "apps/game-library/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/game-library/src/favicon.ico",
+              "apps/game-library/src/assets"
+            ],
+            "styles": ["apps/game-library/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/game-library/src/environments/environment.ts",
+                  "with": "apps/game-library/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "game-library:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "game-library:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "game-library:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/game-library/tsconfig.app.json",
+              "apps/game-library/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/game-library/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/game-library/jest.config.js",
+            "tsConfig": "apps/game-library/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/game-library/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "game-library-e2e": {
+      "root": "apps/game-library-e2e",
+      "sourceRoot": "apps/game-library-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/game-library-e2e/cypress.json",
+            "tsConfig": "apps/game-library-e2e/tsconfig.e2e.json",
+            "devServerTarget": "game-library:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "game-library:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/game-library-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/game-library-e2e/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "game-library"
+}
