@@ -17,7 +17,9 @@ service cloud.firestore {
     match /games/{game} {
       allow read: if userIsAuthenticated();
 
-      allow write: if resource.data['owner'] == request.auth.uid;
+      allow create, update: if request.resource.data['owner'] == request.auth.uid;
+
+      allow delete: if resource.data['owner'] == request.auth.uid;
     }
 
 
